@@ -17,11 +17,8 @@ public class CorrelationIdHeaderFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        try {
-            MDC.put(CORRELATION_ID, request.getHeader(CORRELATION_ID));
+        try (MDC.MDCCloseable mdcCloseable = MDC.putCloseable(CORRELATION_ID, request.getHeader(CORRELATION_ID))) {
             filterChain.doFilter(request, response);
-        } finally {
-            MDC.remove(CORRELATION_ID);
         }
     }
 }

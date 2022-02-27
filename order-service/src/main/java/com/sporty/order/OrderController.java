@@ -26,7 +26,7 @@ public class OrderController {
         log.info("Order is requested {}", order);
         PaymentVO paymentVO = PaymentVO.builder()
                 .id(UUID.randomUUID().toString())
-                .name(order.getName())
+                .name(order.name())
                 .build();
         log.info("Calling payment endpoint {}", paymentVO);
         paymentClientApi.createPayment(paymentVO);
