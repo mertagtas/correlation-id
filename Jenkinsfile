@@ -15,6 +15,7 @@ pipeline {
                 echo Test
                 which java
                 java -version
+                docker version
                 '''
             }
         }
