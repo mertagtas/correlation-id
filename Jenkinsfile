@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo Build'
+                sh './mvnw clean build -x test'
             }
         }
         stage('Test'){
@@ -16,6 +16,7 @@ pipeline {
                 which java
                 java -version
                 docker version
+                ./mvnw clean test
                 '''
             }
         }

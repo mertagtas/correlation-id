@@ -1,7 +1,15 @@
 package com.sporty.correlation.vo;
 
-public record OrderVO(
-        String id,
-        String name
-) {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class OrderVO {
+    private String id;
+    private String name;
 }
