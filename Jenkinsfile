@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './mvnw clean build -x test'
+                sh './mvnw clean package'
             }
         }
         stage('Test'){
